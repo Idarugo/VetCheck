@@ -87,3 +87,68 @@ export async function getStats(): Promise<RegistryStats> {
     clinics: seedClinics.filter((c) => c.certified).length,
   })
 }
+
+export interface Bucket {
+  label: string
+  value: number
+}
+
+export interface RegistryOverview {
+  totals: {
+    vets: number
+    verified: number
+    pending: number
+    unverified: number
+    clinics: number
+    certifiedClinics: number
+    regions: number
+    credentials: number
+  }
+  byStatus: { key: string; label: string; value: number }[]
+  byRegion: Bucket[]
+  byUniversity: Bucket[]
+  byCredential: Bucket[]
+}
+
+function tally(items: string[]): Bucket[] {
+  const map = new Map<string, number>()
+  items.forEach((k) => map.set(k, (map.get(k) ?? 0) + 1))
+  return Array.from(map, ([label, value]) => ({ label, value })).sort(
+    (a, b) => b.value - a.value,
+  )
+}
+
+const credentialLabels: Record<string, string> = {
+  especialidad: 'Especialidades',
+  diplomado: 'Diplomados',
+  curso: 'Cursos',
+  internado: 'Internados',
+  magister: 'Magíster',
+}
+
+export async function getOverview(): Promise<RegistryOverview> {
+  const verified = seedVets.filter((v) => v.status === 'verificado')
+  const allCredentials = seedVets.flatMap((v) => v.credentials)
+
+  return delay({
+    totals: {
+      vets: seedVets.length,
+      verified: verified.length,
+      pending: seedVets.filter((v) => v.status === 'pendiente').length,
+      unverified: seedVets.filter((v) => v.status === 'no_verificado').length,
+      clinics: seedClinics.length,
+      certifiedClinics: seedClinics.filter((c) => c.certified).length,
+      regions: new Set(seedVets.map((v) => v.region)).size,
+      credentials: allCredentials.length,
+    },
+    byStatus: [
+      { key: 'verificado', label: 'Verificados', value: verified.length },
+      { key: 'pendiente', label: 'Pendientes', value: seedVets.filter((v) => v.status === 'pendiente').length },
+      { key: 'no_verificado', label: 'No verificados', value: seedVets.filter((v) => v.status === 'no_verificado').length },
+    ],
+    byRegion: tally(seedVets.map((v) => v.region)),
+    // Solo profesionales verificados aportan universidad real (abreviada para el gráfico)
+    byUniversity: tally(verified.map((v) => v.title.university.replace(/^Universidad /, 'U. '))),
+    byCredential: tally(allCredentials.map((c) => credentialLabels[c.kind] ?? c.kind)),
+  })
+}
