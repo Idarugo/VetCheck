@@ -1,0 +1,47 @@
+.install-bar {
+  position: sticky;
+  bottom: 0;
+  z-index: var(--z-header);
+  background: #fff;
+  border-top: 1px solid var(--c-border);
+  box-shadow: 0 -6px 20px rgba(15, 43, 51, 0.08);
+}
+.install-inner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 20px;
+}
+.install-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: 11px;
+  background: var(--c-primary-050);
+  color: var(--c-primary-700);
+}
+.install-text { flex: 1; min-width: 0; }
+.install-text strong { font-family: var(--font-sans); font-size: 15px; }
+.install-text p { font-size: 13px; color: var(--c-text-muted); margin-top: 1px; }
+.install-btn { flex-shrink: 0; }
+.install-close {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  color: var(--c-text-muted);
+  border-radius: var(--r-md);
+  transition: background-color 200ms ease;
+}
+.install-close:hover { background: var(--c-bg); }
+
+@media (max-width: 560px) {
+  .install-text p { display: none; }
+}

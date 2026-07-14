@@ -1,5 +1,6 @@
 import { Link, NavLink, Outlet } from 'react-router-dom'
 import { Icon } from './Icon'
+import { InstallPrompt } from './InstallPrompt'
 import './Layout.css'
 
 function Brand() {
@@ -73,6 +74,8 @@ export function Layout() {
           organismo oficial.
         </div>
       </footer>
+
+      <InstallPrompt />
     </>
   )
 }
