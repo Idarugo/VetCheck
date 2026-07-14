@@ -70,6 +70,10 @@ export async function listClinics(): Promise<Clinic[]> {
   return delay(seedClinics)
 }
 
+export async function listVets(): Promise<Vet[]> {
+  return delay(seedVets)
+}
+
 export interface RegistryStats {
   verified: number
   total: number

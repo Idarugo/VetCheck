@@ -8,6 +8,9 @@ import { ClinicsPage } from './pages/ClinicsPage'
 import { ClinicProfilePage } from './pages/ClinicProfilePage'
 import { RegisterPage } from './pages/RegisterPage'
 import { HowItWorksPage } from './pages/HowItWorksPage'
+import { PlansPage } from './pages/PlansPage'
+import { IssueCertificatePage } from './pages/IssueCertificatePage'
+import { VerifyCertificatePage } from './pages/VerifyCertificatePage'
 import { NotFoundPage } from './pages/NotFoundPage'
 
 function ScrollToTop() {
@@ -31,6 +34,9 @@ export default function App() {
           <Route path="/clinica/:id" element={<ClinicProfilePage />} />
           <Route path="/registro" element={<RegisterPage />} />
           <Route path="/como-funciona" element={<HowItWorksPage />} />
+          <Route path="/planes" element={<PlansPage />} />
+          <Route path="/certificado" element={<IssueCertificatePage />} />
+          <Route path="/verificar" element={<VerifyCertificatePage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

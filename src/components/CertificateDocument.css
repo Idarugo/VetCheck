@@ -1,0 +1,113 @@
+.cert {
+  background: #fff;
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  padding: 36px 40px;
+  max-width: 620px;
+  margin: 0 auto;
+  color: #0f2b33;
+  box-shadow: var(--shadow-md);
+}
+
+.cert-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--c-primary);
+}
+.cert-brand { display: flex; align-items: center; gap: 12px; }
+.cert-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  background: var(--c-primary);
+  color: #fff;
+}
+.cert-brand strong { display: block; font-family: var(--font-sans); font-size: 17px; }
+.cert-brand-sub { font-size: 12px; color: var(--c-text-muted); }
+.cert-folio { text-align: right; }
+.cert-folio-label { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--c-text-muted); }
+.cert-folio-value { font-family: var(--font-sans); font-weight: 700; font-size: 14px; color: var(--c-primary-700); }
+
+.cert-title {
+  font-size: 26px;
+  text-align: center;
+  margin: 26px 0 18px;
+  color: var(--c-primary-700);
+}
+
+.cert-lead { font-size: 14.5px; line-height: 1.6; color: #33505a; }
+
+.cert-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 24px;
+  margin: 22px 0;
+  padding: 20px;
+  background: var(--c-primary-050);
+  border-radius: var(--r-md);
+}
+.cert-k {
+  display: block;
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--c-text-muted);
+  margin-bottom: 3px;
+}
+.cert-v { font-family: var(--font-sans); font-weight: 600; font-size: 16px; }
+
+.cert-detail { margin: 0 0 22px; }
+.cert-detail p { font-size: 14.5px; margin-top: 4px; line-height: 1.6; }
+
+.cert-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-top: 34px;
+}
+.cert-sign { font-size: 13px; color: #33505a; }
+.cert-sign-line {
+  width: 220px;
+  border-top: 1.5px solid #33505a;
+  margin-bottom: 8px;
+}
+.cert-sign strong { display: block; font-family: var(--font-sans); font-size: 15px; color: #0f2b33; }
+.cert-sign span { display: block; }
+.cert-qr { text-align: center; flex-shrink: 0; }
+.cert-qr img { border-radius: 6px; }
+.cert-qr-ph { width: 110px; height: 110px; background: var(--c-bg); border-radius: 6px; }
+.cert-qr span { display: block; font-size: 10.5px; color: var(--c-text-muted); margin-top: 6px; max-width: 120px; }
+
+.cert-legal {
+  margin-top: 28px;
+  padding-top: 14px;
+  border-top: 1px solid var(--c-border);
+  font-size: 10.5px;
+  color: var(--c-text-muted);
+  line-height: 1.5;
+}
+
+/* ---- Impresión: solo el certificado, a página completa ---- */
+@media print {
+  body * { visibility: hidden !important; }
+  #cert-print,
+  #cert-print * { visibility: visible !important; }
+  #cert-print {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    max-width: none;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 24px 32px;
+  }
+  @page { margin: 12mm; }
+}

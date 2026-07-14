@@ -32,6 +32,9 @@ export function Layout() {
             <NavLink to="/clinicas" className="site-nav-link">
               Clínicas
             </NavLink>
+            <NavLink to="/planes" className="site-nav-link">
+              Planes
+            </NavLink>
             <NavLink to="/como-funciona" className="site-nav-link">
               Cómo funciona
             </NavLink>
@@ -59,6 +62,8 @@ export function Layout() {
               <h4>Plataforma</h4>
               <Link to="/buscar">Buscar profesional</Link>
               <Link to="/clinicas">Clínicas certificadas</Link>
+              <Link to="/planes">Planes y precios</Link>
+              <Link to="/certificado">Emitir certificado (demo)</Link>
               <Link to="/registro">Registrar profesional</Link>
             </div>
             <div>

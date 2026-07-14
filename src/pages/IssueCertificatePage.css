@@ -1,0 +1,34 @@
+.issue-grid {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.issue-form {
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  position: sticky;
+  top: 88px;
+}
+.issue-form textarea {
+  padding: 12px 14px;
+  border: 1.5px solid var(--c-border-strong);
+  border-radius: var(--r-md);
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--c-text);
+  resize: vertical;
+}
+.issue-form textarea:focus { outline: none; border-color: var(--c-primary); }
+.issue-print { margin-top: 4px; }
+.issue-print:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.issue-preview { min-width: 0; }
+
+@media (max-width: 900px) {
+  .issue-grid { grid-template-columns: 1fr; }
+  .issue-form { position: static; }
+}

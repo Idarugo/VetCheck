@@ -1,0 +1,103 @@
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.plan {
+  padding: 30px 26px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.plan-featured {
+  border-color: var(--c-primary);
+  border-width: 2px;
+  box-shadow: var(--shadow-lg);
+}
+.plan-tag {
+  position: absolute;
+  top: -13px;
+  left: 26px;
+  background: var(--c-primary);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 12.5px;
+  padding: 4px 12px;
+  border-radius: var(--r-full);
+}
+.plan-name {
+  font-size: 20px;
+  color: var(--c-primary-700);
+}
+.plan-price {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin: 12px 0 4px;
+}
+.plan-amount {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 38px;
+  color: var(--c-text);
+}
+.plan-period { font-size: 14px; }
+.plan-tagline { font-size: 14.5px; min-height: 44px; margin-bottom: 18px; }
+.plan-cta { width: 100%; margin-bottom: 22px; }
+
+.plan-features {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.plan-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14.5px;
+}
+.plan-features svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--c-cta);
+}
+
+.plans-note {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 24px 26px;
+  margin-top: 28px;
+  background: var(--c-primary-050);
+  border-color: var(--c-primary-100);
+}
+.plans-note-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  background: #fff;
+  color: var(--c-primary-700);
+}
+.plans-note h3 { font-size: 18px; margin-bottom: 4px; }
+.plans-note p { font-size: 14.5px; }
+
+.plans-legal {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 13px;
+}
+
+@media (max-width: 860px) {
+  .plans-grid { grid-template-columns: 1fr; }
+  .plan-tagline { min-height: 0; }
+  .plans-note { flex-direction: column; text-align: center; }
+}
